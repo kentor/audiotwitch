@@ -1,0 +1,11 @@
+{
+  "name": "audiotwitch",
+  "version": "0.0.1",
+  "description": "Get audio only stream of live Twitch channels",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.9.7",
+    "request-promise": "^0.2.1"
+  },
+  "author": "kentor",
+}
