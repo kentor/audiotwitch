@@ -5,6 +5,10 @@ var request = require('request-promise');
 
 var app = express();
 
+app.get('/', function(req, res) {
+  res.send('OK');
+});
+
 app.get('/:channel', function(req, res) {
   var channel = req.params.channel;
   var accessTokenUrl = util.format('http://api.twitch.tv/api/channels/%s/access_token', channel);
