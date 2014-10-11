@@ -24,8 +24,12 @@ app.get('/:channel', function(req, res) {
                               );
     return request(usherUrl);
   }).then(function(response) {
-    var audioOnlyUrl = response.match(/(http[^\s]+)\n$/)[1];
-    res.redirect(audioOnlyUrl);
+    var audioOnlyUrl = (response.match(/(http[^\s]+)\n$/) || [])[1];
+    if (!audioOnlyUrl) {
+      res.send('Offline');
+    } else {
+      res.redirect(audioOnlyUrl);
+    }
   });
 });
 
