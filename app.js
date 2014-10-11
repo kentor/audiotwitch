@@ -5,6 +5,8 @@ var request = require('request-promise');
 
 var app = express();
 
+app.set('port', process.env.PORT || 5000);
+
 app.get('/', function(req, res) {
   res.send('OK');
 });
@@ -27,6 +29,6 @@ app.get('/:channel', function(req, res) {
   });
 });
 
-var server = app.listen(80, function() {
-  console.log('Listening on port %d', server.address().port);
+app.listen(app.get('port'), function() {
+  console.log('Listening on port %d', app.get('port'));
 });
