@@ -23,6 +23,8 @@ app.get('/:channel', function(req, res) {
                                accessToken.token
                               );
     return request(usherUrl);
+  }, function(error) {
+    res.send('No such channel');
   }).then(function(response) {
     var audioOnlyUrl = (response.match(/(http[^\s]+)\n$/) || [])[1];
     if (!audioOnlyUrl) {
